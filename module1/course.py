@@ -63,7 +63,6 @@ class Course:
     
     def get_credits(self) -> int:
         """Return the credit hours."""
-        
         return self._credits
 
     def get_instructor(self) -> str:
@@ -80,13 +79,12 @@ class Course:
 
     def set_name(self, name: str) -> None:
         """Set the course name."""
-        # TODO: Set the course name
-        pass
+        
+        self._name = name
 
     def set_code(self, code: str) -> None:
         """Set the course code."""
-        # TODO: Set the course code
-        pass
+        self._code = code
 
     def set_credits(self, credits: int) -> None:
         """
@@ -101,18 +99,23 @@ class Course:
         you might raise an exception to alert the caller of invalid input.
         We'll cover exception handling in a later module.
         """
-        # TODO: Set the credit hours WITH VALIDATION
-        pass
+        
+        if credits < 1:
+            self._credits = 1
+        elif credits > 5:
+            self._credits = 5
+        else:
+            self._credits = credits
 
     def set_instructor(self, instructor: str) -> None:
         """Set the instructor name."""
         # TODO: Set the instructor name
-        pass
+        self._instructor = instructor
 
     def set_is_online(self, is_online: bool) -> None:
         """Set the online status."""
-        # TODO: Set the online status
-        pass
+        
+        self._is_online = is_online
 
     # === DISPLAY ===
 
@@ -132,9 +135,6 @@ class Course:
         Returns:
             A human-readable string representation of the course.
         """
-        # TODO: Return a formatted string representation
-        # HINT: Use an f-string for easy formatting
-        # HINT: Use a conditional expression for Online/In-Person:
-        #       "Online" if self._is_online else "In-Person"
-
-        return ""  # Replace this
+        
+        mode = "Online" if self._is_online else "In-Person"
+        return f"{self._code}: {self._name} ({self._credits} credits) - {self._instructor} [{mode}]"
