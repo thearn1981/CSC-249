@@ -73,8 +73,7 @@ class Course:
 
     def get_is_online(self) -> bool:
         """Return whether the course is online."""
-        # TODO: Return whether the course is online
-        return False  # Replace this
+        return self._is_online
 
     # === SETTERS ===
     # These allow controlled modification of private instance variables.
